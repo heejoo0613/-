@@ -1,0 +1,42 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+<body>
+<div class="container">
+
+    <h1>Listing posts</h1>
+    
+    <a href="#" class="waves-effect waves-light btn"><%= link_to 'New post', new_post_path %></a>
+    
+    
+    <table>
+        
+  
+        <tr>    
+        <th>Title</th>    
+        <th>Text</th> 
+  
+        </tr>
+            <% @posts.each do |post| %>
+        <tr>
+            <div class="col s12 m7">
+                <div class="card horizontal">
+                    <td><h5 div class="card-stacked"><%= post.title %></h5></td>
+                    <td><h6 div class="card-content"><%= post.content %></h6></td>
+                     </div>
+                    <td><div class="card-action">
+                      <td><a href="#"><%= link_to 'Show', post_path(post) %></a></td>
+                      <td><a href="#"><%= link_to 'Edit', edit_post_path(post) %></a></td>
+                    </div></td>
+                  </div>
+                </div>
+              </div>
+        </tr>       
+ 
+              <% end %>
+    </table>
+    <%= will_paginate @posts %>
+
+</div>
+</body>
+
